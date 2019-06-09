@@ -1,13 +1,21 @@
 const path = require("path");
 const webpack = require("webpack");
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const configurationModes = mode =>
+  require(`./build-utils/webpack.${mode}`)(mode);
 
-module.exports = ({ mode }) => ({
-  mode,
-  output: {
-    path: path.join(__dirname, "./dist"),
-    filename: "[chunkhash].js"
-  },
-  plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
-});
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const merge = require("webpack-merge");
+
+module.exports = ({ mode }) =>
+  merge(
+    {
+      mode,
+      output: {
+        path: path.join(__dirname, "./dist"),
+        filename: "default-bundle.js"
+      },
+      plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
+    },
+    configurationModes(mode)
+  );

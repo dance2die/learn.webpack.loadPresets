@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf -rf ./dist",
-    "webpack": "npm run clean && webpack",
-    "webpack-dev-server": "npm run clean && webpack-dev-server",
+    "clean:dev": "npm run clean && rimraf -rf ./build-dev",
+    "clean:prod": "npm run clean && rimraf -rf ./build-prod",
+    "webpack": "npm run clean:prod && webpack",
+    "webpack-dev-server": "npm run clean:dev && webpack-dev-server",
     "dev": "npm run webpack-dev-server -- --env.mode development",
     "prod": "npm run webpack -- --env.mode production"
   },
