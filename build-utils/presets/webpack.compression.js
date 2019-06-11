@@ -1,5 +1,5 @@
-const compressionWebpackPlugin = require("compression-webpack-plugin");
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-module.exports = env => ({
-  plugins: [new compressionWebpackPlugin()]
+module.exports = () => ({
+  plugins: [new CompressionWebpackPlugin()]
 });
