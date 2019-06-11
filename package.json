@@ -10,12 +10,14 @@
     "webpack": "npm run clean:prod && webpack",
     "webpack-dev-server": "npm run clean:dev && webpack-dev-server",
     "dev": "npm run webpack-dev-server -- --env.mode development --hot",
-    "prod": "npm run webpack -- --env.mode production"
+    "prod": "npm run webpack -- --env.mode production",
+    "prod:compression": "npm run webpack -- --env.presets compression"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "compression-webpack-plugin": "^3.0.0",
     "css-loader": "^2.1.1",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
