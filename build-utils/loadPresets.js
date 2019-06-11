@@ -8,7 +8,7 @@ const applyPresets = env => {
   );
 
   console.log(`mergedPresets`, mergedPresets, `env`, env);
-  return webpackMerge({}, mergedConfigurations);
+  return webpackMerge({}, ...mergedConfigurations);
 };
 
 module.exports = applyPresets;
